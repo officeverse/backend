@@ -1,0 +1,27 @@
+service: officeverse-api
+
+useDotenv: true
+
+provider:
+  name: aws
+  region: ap-south-1
+  runtime: nodejs18.x
+  stage: ${opt:stage, 'dev'}
+  memorySize: 512
+  environment:
+    DB_NAME: ${env:DB_NAME}
+    DB_URL: ${env:DB_URL}
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+
+package:
+  exclude:
+    - .env.stage
+    - .env.prod
+  include:
+    - .env.dev
+
+functions:
+  - ${file(./config/users-functions.yml)}

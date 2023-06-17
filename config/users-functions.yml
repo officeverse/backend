@@ -1,0 +1,6 @@
+usersCreate:
+  handler: app/handler.usersCreate
+  events:
+    - httpApi:
+        method: POST
+        path: /users

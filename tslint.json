@@ -1,0 +1,7 @@
+{
+  "extends": ["tslint-config-airbnb", "tslint-config-prettier"],
+  "indent": [true, "spaces", 2],
+  "linterOptions": {
+    "exclude": ["node_modules"]
+  }
+}
