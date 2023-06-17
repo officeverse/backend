@@ -1,0 +1,23 @@
+rewardsCreate:
+  handler: app/handler.rewardsCreate
+  events:
+    - httpApi:
+        method: POST
+        path: /rewards
+  iamRoleStatements:
+    - Effect: 'Allow'
+      Action:
+        - 's3:PutObject'
+      Resource: arn:aws:s3:::officeverse-files-bucket/*
+
+rewardsList:
+  handler: app/handler.rewardsList
+  events:
+    - httpApi:
+        method: GET
+        path: /rewards
+  iamRoleStatements:
+    - Effect: 'Allow'
+      Action:
+        - 's3:GetObject'
+      Resource: arn:aws:s3:::officeverse-files-bucket/*
