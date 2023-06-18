@@ -1,0 +1,12 @@
+compressImage:
+  handler: app/service/file/compressImage.handler
+  events:
+    - s3:
+        bucket: ${env:FILE_UPLOAD_BUCKET_NAME}
+        event: s3:ObjectCreated:* # Put, Post, Copy, CompleteMultipartUpload
+  iamRoleStatements:
+    - Effect: 'Allow'
+      Action:
+        - 's3:GetObject'
+        - 's3:PutObject'
+      Resource: ${env:FILE_BUCKET_ARN}/*

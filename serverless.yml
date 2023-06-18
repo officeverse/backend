@@ -17,15 +17,30 @@ plugins:
   - serverless-plugin-typescript
   - serverless-offline
   - serverless-iam-roles-per-function
+  - serverless-s3-local
 
 package:
   exclude:
     - .env.stage
     - .env.prod
+    - .env.local
   include:
     - .env.dev
 
 functions:
+  - ${file(./config/file-functions.yml)}
   - ${file(./config/challenges-functions.yml)}
   - ${file(./config/rewards-functions.yml)}
   - ${file(./config/users-functions.yml)}
+# for local development
+# custom:
+#   s3:
+#     host: localhost
+#     directory: /tmp
+
+# resources:
+#   Resources:
+#     NewResource:
+#       Type: AWS::S3::Bucket
+#       Properties:
+#         BucketName: local-bucket
