@@ -1,0 +1,23 @@
+challengesCreate:
+  handler: app/handler.challengesCreate
+  events:
+    - httpApi:
+        method: POST
+        path: /challenges
+  iamRoleStatements:
+    - Effect: 'Allow'
+      Action:
+        - 's3:PutObject'
+      Resource: arn:aws:s3:::officeverse-files-bucket/*
+
+challengesList:
+  handler: app/handler.challengesList
+  events:
+    - httpApi:
+        method: GET
+        path: /challenges
+  iamRoleStatements:
+    - Effect: 'Allow'
+      Action:
+        - 's3:GetObject'
+      Resource: arn:aws:s3:::officeverse-files-bucket/*

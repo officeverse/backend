@@ -26,5 +26,6 @@ package:
     - .env.dev
 
 functions:
-  - ${file(./config/users-functions.yml)}
+  - ${file(./config/challenges-functions.yml)}
   - ${file(./config/rewards-functions.yml)}
+  - ${file(./config/users-functions.yml)}
