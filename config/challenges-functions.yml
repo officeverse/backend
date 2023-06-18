@@ -8,7 +8,7 @@ challengesCreate:
     - Effect: 'Allow'
       Action:
         - 's3:PutObject'
-      Resource: arn:aws:s3:::officeverse-files-bucket/*
+      Resource: ${env:FILE_BUCKET_ARN}/*
 
 challengesList:
   handler: app/handler.challengesList
@@ -20,4 +20,4 @@ challengesList:
     - Effect: 'Allow'
       Action:
         - 's3:GetObject'
-      Resource: arn:aws:s3:::officeverse-files-bucket/*
+      Resource: ${env:FILE_BUCKET_ARN}/*

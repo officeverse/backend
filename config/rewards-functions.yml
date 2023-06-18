@@ -8,7 +8,7 @@ rewardsCreate:
     - Effect: 'Allow'
       Action:
         - 's3:PutObject'
-      Resource: arn:aws:s3:::officeverse-files-bucket/*
+      Resource: ${env:FILE_BUCKET_ARN}/*
 
 rewardsList:
   handler: app/handler.rewardsList
@@ -20,4 +20,4 @@ rewardsList:
     - Effect: 'Allow'
       Action:
         - 's3:GetObject'
-      Resource: arn:aws:s3:::officeverse-files-bucket/*
+      Resource: ${env:FILE_BUCKET_ARN}/*
