@@ -1,17 +1,28 @@
-import { Context, S3Event, S3ObjectCreatedNotificationEvent } from 'aws-lambda';
+import { Context, S3Event } from 'aws-lambda';
 import { handler as getFileHandler } from './getFileFromBucket';
 import { handler as uploadFileHandler } from './uploadFileToBucket';
+import { handler as deleteFileHandler } from './deleteObjectFromBucket';
 import sharp from 'sharp';
+import { S3_PREFIX_COMPRESS } from '../../utils/aws';
 
 export const handler = async (event: S3Event, context: Context) => {
   console.log('functionName', context.functionName);
 
-  console.info('Get image from bucket');
   const { name: bucketName } = event.Records[0].s3.bucket;
-  const { key } = event.Records[0].s3.object;
+  const { key: prefixedKey } = event.Records[0].s3.object;
+  console.info(`Get ${prefixedKey} from ${bucketName}`);
+
+  // avoid infinite loop
+  if (!prefixedKey.includes(S3_PREFIX_COMPRESS)) return;
+  const originalKey = prefixedKey.replace(
+    new RegExp(`^${S3_PREFIX_COMPRESS}`),
+    ''
+  );
+
+  // image has not been processed
   const imageDataUrl = await getFileHandler({
     bucket: bucketName,
-    key,
+    key: prefixedKey,
   }).catch((err) => {
     console.error(err.message);
     throw err;
@@ -31,21 +42,22 @@ export const handler = async (event: S3Event, context: Context) => {
     })
     .toBuffer();
 
-  console.info('Put image to bucket');
+  console.info(`Put image to bucket: ${originalKey} -> ${bucketName}`);
   const uploadData = {
     file: resizedBuf.toString('base64'),
     options: {
       bucket: bucketName,
-      key,
+      key: originalKey,
       contentEncoding: 'base64',
       contentType: 'image/jpeg',
     },
   };
 
-  return await uploadFileHandler({ body: JSON.stringify(uploadData) }).catch(
-    (err) => {
-      console.error(err);
-      throw err;
-    }
-  );
+  await uploadFileHandler({ body: JSON.stringify(uploadData) }).catch((err) => {
+    console.error(err);
+    throw err;
+  });
+
+  console.info(`Delete original from bucket: ${prefixedKey}`);
+  return await deleteFileHandler({ bucket: bucketName, key: prefixedKey });
 };

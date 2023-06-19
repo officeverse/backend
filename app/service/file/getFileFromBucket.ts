@@ -1,20 +1,5 @@
-import {
-  GetObjectCommand,
-  HeadObjectCommand,
-  S3Client,
-} from '@aws-sdk/client-s3';
-
-const s3Client =
-  process.env.IS_OFFLINE === 'true'
-    ? new S3Client({
-        forcePathStyle: true,
-        credentials: {
-          accessKeyId: 'S3RVER', // This specific key is required when working offline
-          secretAccessKey: 'S3RVER',
-        },
-        endpoint: 'http://localhost:4569',
-      }) //  serverless-s3-local
-    : new S3Client({});
+import { GetObjectCommand, HeadObjectCommand } from '@aws-sdk/client-s3';
+import { s3Client } from '../../utils/aws';
 
 export const handler = async (options: { bucket: string; key: string }) => {
   const request = {

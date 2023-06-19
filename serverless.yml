@@ -32,7 +32,7 @@ functions:
   - ${file(./config/challenges-functions.yml)}
   - ${file(./config/rewards-functions.yml)}
   - ${file(./config/users-functions.yml)}
-# for local development
+# for local development, comment before deploying
 # custom:
 #   s3:
 #     host: localhost

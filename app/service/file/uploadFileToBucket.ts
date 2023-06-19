@@ -1,7 +1,6 @@
-import { PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
+import { PutObjectCommand } from '@aws-sdk/client-s3';
+import { s3Client } from '../../utils/aws';
 import type { FileUploadOptions } from './file.types';
-
-const s3Client = new S3Client({});
 
 export const handler = async (event: any) => {
   const parsedBody = JSON.parse(event.body);

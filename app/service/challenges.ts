@@ -6,6 +6,7 @@ import { ChallengesDocument } from '../model';
 import { ListChallengesParams } from '../model/params.types';
 import { handler as uploadHandler } from './file/uploadFileToBucket';
 import { handler as getFileHandler } from './file/getFileFromBucket';
+import { S3_PREFIX_COMPRESS } from '../utils/aws';
 
 export class ChallengesService {
   private challenges: Model<any>;
@@ -39,7 +40,7 @@ export class ChallengesService {
       file: params.imageDataUrl.replace(/^data:image\/\w+;base64,/, ''),
       options: {
         bucket: process.env.FILE_UPLOAD_BUCKET_NAME,
-        key: imageKey,
+        key: `${S3_PREFIX_COMPRESS}${imageKey}`, // add prefix to trigger compress operation
         contentEncoding: 'base64',
         contentType: mimeType,
       },
