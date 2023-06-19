@@ -38,6 +38,7 @@ export const handler = async (event: S3Event, context: Context) => {
     .resize({
       width: 1000,
       height: 1000,
+      fit: 'contain',
       withoutEnlargement: true,
     })
     .toBuffer();
