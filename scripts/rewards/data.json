@@ -1,0 +1,79 @@
+[
+  {
+    "name": "Gift vouchers",
+    "description": "Redeem gift vouchers for various retail stores and online platforms.",
+    "cost": 5000,
+    "category": "Shopping",
+    "imageFilePath": "img/voucher.jpg"
+  },
+  {
+    "name": "Peach Garden dining vouchers",
+    "description": "Enjoy meals at restaurants and cafes with these dining vouchers.",
+    "cost": 25000,
+    "category": "Food & Beverage",
+    "imageFilePath": "img/peach_garden.jpg"
+  },
+  {
+    "name": "Golven Village Gold Class Tickets",
+    "description": "Catch the latest movies with these complimentary movie tickets.",
+    "cost": 3000,
+    "category": "Entertainment",
+    "imageFilePath": "img/gv_gold_class_tickets.jpg"
+  },
+  {
+    "name": "KrisFlyer 10,000 Miles",
+    "description": "Plan your next vacation with miles.",
+    "cost": 30000,
+    "category": "Travel",
+    "imageFilePath": "img/boeing-777-300er.jpg"
+  },
+  {
+    "name": "Anytime Fitness 1 month membership",
+    "description": "Join fitness classes or gym memberships with these vouchers.",
+    "cost": 8000,
+    "category": "Health & Wellness",
+    "imageFilePath": "img/Anytime-Fitness-New-Logo.png"
+  },
+  {
+    "name": "Challenger $20 Gift Card",
+    "description": "Redeem the latest tech gadgets and accessories.",
+    "cost": 5000,
+    "category": "Electronics",
+    "imageFilePath": "img/challenger.jpg"
+  },
+  {
+    "name": "Community Chest $1 Donation",
+    "description": "Support a charitable cause by donating your virtual currency.",
+    "cost": 250,
+    "category": "Social Impact",
+    "imageFilePath": "img/org-comchest.png"
+  },
+  {
+    "name": "Spa treatments",
+    "description": "Indulge in a relaxing spa session with these vouchers.",
+    "cost": 10000,
+    "category": "Health & Wellness",
+    "imageFilePath": "img/spa-1.jpg"
+  },
+  {
+    "name": "Coursera $50 Credits",
+    "description": "Expand your skills with access to various online courses.",
+    "cost": 5000,
+    "category": "Education",
+    "imageFilePath": "img/coursera.png"
+  },
+  {
+    "name": "Coldplay Concert tickets",
+    "description": "Attend live concerts and music events with these tickets.",
+    "cost": 50000,
+    "category": "Entertainment",
+    "imageFilePath": "img/coldplay.jpeg"
+  },
+  {
+    "name": "Tefal Toaster",
+    "description": "Redeem essential home appliances and electronics.",
+    "cost": 2000,
+    "category": "Electronics",
+    "imageFilePath": "img/797708916.g_520-w-st_g.jpg"
+  }
+]
