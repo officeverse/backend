@@ -45,12 +45,13 @@ export class UsersService {
       });
   }
 
-  protected async retrieveUserProfile(userId: string): Promise<object> {
+  protected async retrieveUserProfile(cognitoSub: string): Promise<object> {
     return this.users
-      .findOne({ _id: userId })
+      .findOne({ cognitoSub })
       .then((user) => {
-        if (!user) throw new Error('User ID does not exist!');
+        if (!user) throw new Error('User profile does not exist!');
         const {
+          _id: userId,
           username,
           firstName,
           lastName,

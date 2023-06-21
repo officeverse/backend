@@ -43,10 +43,9 @@ export class UsersController extends UsersService {
 
   async retrieveProfile(event: APIGatewayEvent, context: Context) {
     console.log('functionName', context.functionName);
-    const { userId } = event.queryStringParameters;
-    this.checkValidUserId(userId);
+    const { cognitoSub } = event.queryStringParameters;
 
-    return this.retrieveUserProfile(userId)
+    return this.retrieveUserProfile(cognitoSub)
       .then((res) => MessageUtil.success(res))
       .catch((err) => {
         console.error(err);
