@@ -1,5 +1,9 @@
 export class CreateUserDTO {
-  name: string;
+  firstName: string;
+  lastName?: string;
   dateOfBirth: Date;
-  cognitoId: string;
+  jobTitle: string;
+  dateJoined: Date;
+  numMCSRemaining?: number;
+  numLeavesRemaining?: number;
 }

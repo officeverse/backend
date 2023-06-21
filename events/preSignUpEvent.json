@@ -1,0 +1,10 @@
+{
+  "username": "MangoLover999",
+  "request": {
+    "userAttributes": {
+      "email": "mango@abc.com",
+      "sub": "961987812903890",
+      "signUpCode": "testing"
+    }
+  }
+}

@@ -4,3 +4,33 @@ usersCreate:
     - httpApi:
         method: POST
         path: /users
+
+usersResetCode:
+  handler: app/handler.usersResetCode
+  events:
+    - httpApi:
+        method: POST
+        path: /users/resetCode
+
+# read/write for custom:sign_up_code needs to be added manually
+preSignUpValidateCode:
+  handler: app/handler.preSignUpValidateCode
+  events:
+    - cognitoUserPool:
+        pool: ${env:COGNITO_USER_POOL}
+        trigger: PreSignUp
+        existing: true
+        forceDeploy: true
+  environment:
+    BYPASS_SIGN_UP_CODE: ${env:BYPASS_SIGN_UP_CODE}
+
+onUserSignUpConfirmation:
+  handler: app/handler.onUserSignUpConfirmation
+  events:
+    - cognitoUserPool:
+        pool: ${env:COGNITO_USER_POOL}
+        trigger: PostConfirmation
+        existing: true
+        forceDeploy: true
+  environment:
+    BYPASS_SIGN_UP_CODE: ${env:BYPASS_SIGN_UP_CODE}

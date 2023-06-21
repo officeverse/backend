@@ -1,0 +1,11 @@
+{
+  "triggerSource": "PostConfirmation_ConfirmSignUp",
+  "request": {
+    "userAttributes": {
+      "username": "MangoLover999",
+      "email": "mango@abc.com",
+      "sub": "1262379127839",
+      "signUpCode": "testing"
+    }
+  }
+}

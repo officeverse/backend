@@ -1,0 +1,191 @@
+[
+  {
+    "firstName": "John",
+    "lastName": "Doe",
+    "jobTitle": "Software Engineer",
+    "dateJoined": "2022-03-15",
+    "dateOfBirth": "1990-08-10",
+    "numMCSRemaining": 9,
+    "numLeavesRemaining": 11
+  },
+  {
+    "firstName": "Jane",
+    "lastName": "Smith",
+    "jobTitle": "Senior Software Engineer",
+    "dateJoined": "2019-06-20",
+    "dateOfBirth": "1985-05-25",
+    "numMCSRemaining": 7,
+    "numLeavesRemaining": 9
+  },
+  {
+    "firstName": "David",
+    "lastName": "Johnson",
+    "jobTitle": "Software Developer",
+    "dateJoined": "2020-09-10",
+    "dateOfBirth": "1992-12-05",
+    "numMCSRemaining": 12,
+    "numLeavesRemaining": 6
+  },
+  {
+    "firstName": "Emily",
+    "lastName": "Brown",
+    "jobTitle": "Frontend Engineer",
+    "dateJoined": "2021-01-02",
+    "dateOfBirth": "1991-07-15",
+    "numMCSRemaining": 8,
+    "numLeavesRemaining": 10
+  },
+  {
+    "firstName": "Michael",
+    "lastName": "Lee",
+    "jobTitle": "Software Engineer",
+    "dateJoined": "2023-02-05",
+    "dateOfBirth": "1993-04-20",
+    "numMCSRemaining": 6,
+    "numLeavesRemaining": 13
+  },
+  {
+    "firstName": "Olivia",
+    "lastName": "Wong",
+    "jobTitle": "Backend Developer",
+    "dateJoined": "2022-07-12",
+    "dateOfBirth": "1988-11-30",
+    "numMCSRemaining": 11,
+    "numLeavesRemaining": 7
+  },
+  {
+    "firstName": "Daniel",
+    "lastName": "Nguyen",
+    "jobTitle": "Full Stack Developer",
+    "dateJoined": "2018-04-25",
+    "dateOfBirth": "1984-02-15",
+    "numMCSRemaining": 14,
+    "numLeavesRemaining": 5
+  },
+  {
+    "firstName": "Sophia",
+    "lastName": "Tan",
+    "jobTitle": "Software Engineer",
+    "dateJoined": "2021-09-18",
+    "dateOfBirth": "1990-01-08",
+    "numMCSRemaining": 5,
+    "numLeavesRemaining": 12
+  },
+  {
+    "firstName": "Ryan",
+    "lastName": "Goh",
+    "jobTitle": "Senior Software Engineer",
+    "dateJoined": "2017-11-30",
+    "dateOfBirth": "1983-06-25",
+    "numMCSRemaining": 10,
+    "numLeavesRemaining": 8
+  },
+  {
+    "firstName": "Ava",
+    "lastName": "Liu",
+    "jobTitle": "Frontend Developer",
+    "dateJoined": "2020-08-05",
+    "dateOfBirth": "1994-09-12",
+    "numMCSRemaining": 13,
+    "numLeavesRemaining": 6
+  },
+  {
+    "firstName": "William",
+    "lastName": "Chen",
+    "jobTitle": "Marketing Manager",
+    "dateJoined": "2019-03-10",
+    "dateOfBirth": "1987-10-22",
+    "numMCSRemaining": 8,
+    "numLeavesRemaining": 9
+  },
+  {
+    "firstName": "Emma",
+    "lastName": "Koh",
+    "jobTitle": "UX Designer",
+    "dateJoined": "2020-06-02",
+    "dateOfBirth": "1992-11-15",
+    "numMCSRemaining": 6,
+    "numLeavesRemaining": 10
+  },
+  {
+    "firstName": "Matthew",
+    "lastName": "Lim",
+    "jobTitle": "HR Manager",
+    "dateJoined": "2018-09-20",
+    "dateOfBirth": "1986-07-05",
+    "numMCSRemaining": 9,
+    "numLeavesRemaining": 8
+  },
+  {
+    "firstName": "Sofia",
+    "lastName": "Teo",
+    "jobTitle": "Software Engineer",
+    "dateJoined": "2021-05-14",
+    "dateOfBirth": "1990-04-28",
+    "numMCSRemaining": 11,
+    "numLeavesRemaining": 7
+  },
+  {
+    "firstName": "Henry",
+    "lastName": "Yap",
+    "jobTitle": "Product Designer",
+    "dateJoined": "2019-02-08",
+    "dateOfBirth": "1989-09-18",
+    "numMCSRemaining": 7,
+    "numLeavesRemaining": 9
+  },
+  {
+    "firstName": "Lily",
+    "lastName": "Tay",
+    "jobTitle": "Software Engineer",
+    "dateJoined": "2022-11-03",
+    "dateOfBirth": "1991-12-20",
+    "numMCSRemaining": 10,
+    "numLeavesRemaining": 8
+  },
+  {
+    "firstName": "Lucas",
+    "lastName": "Heng",
+    "jobTitle": "UI Designer",
+    "dateJoined": "2020-08-15",
+    "dateOfBirth": "1993-03-06",
+    "numMCSRemaining": 12,
+    "numLeavesRemaining": 6
+  },
+  {
+    "firstName": "Chloe",
+    "lastName": "Lau",
+    "jobTitle": "Software Engineer",
+    "dateJoined": "2017-12-21",
+    "dateOfBirth": "1984-06-14",
+    "numMCSRemaining": 9,
+    "numLeavesRemaining": 7
+  },
+  {
+    "firstName": "Adam",
+    "lastName": "Lim",
+    "jobTitle": "Marketing Coordinator",
+    "dateJoined": "2022-01-09",
+    "dateOfBirth": "1995-02-04",
+    "numMCSRemaining": 8,
+    "numLeavesRemaining": 8
+  },
+  {
+    "firstName": "Isabella",
+    "lastName": "Wong",
+    "jobTitle": "HR Executive",
+    "dateJoined": "2019-07-18",
+    "dateOfBirth": "1988-11-12",
+    "numMCSRemaining": 6,
+    "numLeavesRemaining": 10
+  },
+  {
+    "firstName": "Benjamin",
+    "lastName": "Tan",
+    "jobTitle": "Software Engineer",
+    "dateJoined": "2021-04-05",
+    "dateOfBirth": "1992-09-30",
+    "numMCSRemaining": 11,
+    "numLeavesRemaining": 9
+  }
+]
