@@ -16,11 +16,12 @@ export type UsersDocument = mongoose.Document & {
   numLeavesRemaining: number;
   // additional user data
   hasCompletedOnboarding: boolean;
-  totalCoins: number;
-  weeklyCoins: number;
+  coins: number;
+  weeklyExp: number;
   totalExp: number;
   signUpCode: string;
   isSignUpCodeUsed: boolean;
+  badges: string[];
   createdAt: Date;
 };
 
@@ -30,18 +31,19 @@ const usersSchema = new mongoose.Schema({
   username: String,
   email: String,
   // basic information
-  firstName: { type: String, trim: true, required: true },
-  lastName: { type: String, trim: true },
-  dateOfBirth: { type: Date, required: true },
-  jobTitle: { type: String, trim: true, required: true },
-  dateJoined: { type: Date, required: true },
+  firstName: { type: String, trim: true, default: '' },
+  lastName: { type: String, trim: true, default: '' },
+  dateOfBirth: { type: Date, default: Date.now },
+  jobTitle: { type: String, trim: true, default: '' },
+  dateJoined: { type: Date, default: Date.now },
   numMCSRemaining: { type: Number, default: 14 },
   numLeavesRemaining: { type: Number, default: 14 },
   // additional user data
   hasCompletedOnboarding: { type: Boolean, default: false },
-  totalCoins: { type: Number, default: 0 },
-  weeklyCoins: { type: Number, default: 0 },
+  coins: { type: Number, default: 0 },
+  weeklyExp: { type: Number, default: 0 },
   totalExp: { type: Number, default: 0 },
+  badges: { type: Array<String>, default: [] },
   signUpCode: { type: String, default: uuidv4() },
   isSignUpCodeUsed: { type: Boolean, default: false },
   createdAt: { type: Date, default: Date.now },
