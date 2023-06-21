@@ -11,7 +11,7 @@ import { RewardsController } from './controller/rewards';
 import { UsersController } from './controller/users';
 import { handler as preSignUpValidateCodeHandler } from './service/user/preSignUpValidateCode';
 import { handler as onUserSignUpConfirmationHandler } from './service/user/onUserSignUpConfirmation';
-
+import { handler as executeDBQueryHandler } from './utils/executeDBQuery';
 const challengesController = new ChallengesController(challenges);
 const rewardsController = new RewardsController(rewards);
 const usersController = new UsersController(users);
@@ -54,6 +54,13 @@ export const usersCreate: Handler = (
   return usersController.create(event, context);
 };
 
+export const usersRetrieveProfile: Handler = (
+  event: APIGatewayEvent,
+  context: Context
+) => {
+  return usersController.retrieveProfile(event, context);
+};
+
 export const usersResetCode: Handler = (
   event: APIGatewayEvent,
   context: Context
@@ -74,4 +81,11 @@ export const onUserSignUpConfirmation: Handler = (
   context: Context
 ) => {
   return onUserSignUpConfirmationHandler(event, context);
+};
+
+export const executeDBQuery: Handler = (
+  event: APIGatewayEvent,
+  context: Context
+) => {
+  return executeDBQueryHandler(event, context);
 };

@@ -36,4 +36,45 @@ export class UsersService {
         throw err;
       });
   }
+
+  protected async retrieveUserProfile(userId: string): Promise<object> {
+    return this.users
+      .findOne({ _id: userId })
+      .then((user) => {
+        if (!user) throw new Error('User ID does not exist!');
+        const {
+          username,
+          firstName,
+          lastName,
+          jobTitle,
+          numMCSRemaining,
+          numLeavesRemaining,
+          totalExp,
+          weeklyExp,
+          coins,
+          badges,
+          avatar,
+          hasCompletedOnboarding,
+        } = user;
+        return {
+          userId,
+          username,
+          firstName,
+          lastName,
+          jobTitle,
+          numMCSRemaining,
+          numLeavesRemaining,
+          totalExp,
+          weeklyExp,
+          coins,
+          badges,
+          avatar,
+          hasCompletedOnboarding,
+        };
+      })
+      .catch((err) => {
+        console.log(err);
+        throw err;
+      });
+  }
 }

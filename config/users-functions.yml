@@ -5,6 +5,13 @@ usersCreate:
         method: POST
         path: /users
 
+usersRetrieveProfile:
+  handler: app/handler.usersRetrieveProfile
+  events:
+    - httpApi:
+        method: GET
+        path: /users/profile
+
 usersResetCode:
   handler: app/handler.usersResetCode
   events:

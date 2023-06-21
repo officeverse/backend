@@ -1,6 +1,13 @@
 import mongoose from 'mongoose';
 import { v4 as uuidv4 } from 'uuid';
 
+export type Avatar = {
+  fit: number;
+  glasses: number;
+  hair: number;
+  base: number;
+};
+
 export type UsersDocument = mongoose.Document & {
   // cognito profile
   cognitoSub: string;
@@ -22,6 +29,7 @@ export type UsersDocument = mongoose.Document & {
   signUpCode: string;
   isSignUpCodeUsed: boolean;
   badges: string[];
+  avatar: Avatar;
   createdAt: Date;
 };
 
@@ -46,6 +54,15 @@ const usersSchema = new mongoose.Schema({
   badges: { type: Array<String>, default: [] },
   signUpCode: { type: String, default: uuidv4() },
   isSignUpCodeUsed: { type: Boolean, default: false },
+  avatar: {
+    type: Object,
+    default: {
+      fit: 1,
+      glasses: 1,
+      hair: 1,
+      base: 1,
+    },
+  },
   createdAt: { type: Date, default: Date.now },
 });
 
