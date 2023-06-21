@@ -36,10 +36,9 @@ export const handler = async (event: S3Event, context: Context) => {
   const resizedBuf = await sharp(originalBuf)
     .jpeg({ quality: 80 })
     .resize({
-      width: 1000,
-      height: 1000,
-      fit: 'contain',
-      withoutEnlargement: true,
+      width: 800,
+      height: 800,
+      fit: 'outside',
     })
     .toBuffer();
 
