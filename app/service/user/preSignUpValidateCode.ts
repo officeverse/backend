@@ -6,7 +6,8 @@ export const handler = async (
   context: Context
 ) => {
   console.log('functionName', context.functionName);
-  const { 'custom:sign_up_code': signUpCode } = event.request.userAttributes;
+  const { email, 'custom:sign_up_code': signUpCode } =
+    event.request.userAttributes;
 
   // bypass database check
   if (signUpCode && signUpCode === process.env.BYPASS_SIGN_UP_CODE) {
@@ -14,18 +15,30 @@ export const handler = async (
     return event;
   }
 
-  return users
+  await users
     .findOne({ signUpCode })
-    .then((data) => {
-      if (!data) throw new Error('Invalid sign up code.');
-      if (data.isSignUpCodeUsed) throw new Error('Sign up code is used.');
+    .then((user) => {
+      if (!user) throw new Error('Invalid sign up code.');
+      if (user.isSignUpCodeUsed) throw new Error('Sign up code is used.');
       // code will be marked as used after user signs up successfully
       console.log(`Code ${signUpCode} is valid`);
-      return event;
     })
     .catch((err) => {
       console.log(`Code ${signUpCode} is invalid`);
       console.error(err);
       throw err;
     });
+
+  await users
+    .findOne({ email })
+    .then((user) => {
+      if (user) throw new Error('Email is registered to another account.');
+      console.log(`${email} is valid.`);
+    })
+    .catch((err) => {
+      console.error(err);
+      throw err;
+    });
+
+  return event;
 };
