@@ -12,12 +12,45 @@ usersRetrieveProfile:
         method: GET
         path: /users/profile
 
+usersRetrieveLeaderboards:
+  handler: app/handler.usersRetrieveLeaderboards
+  events:
+    - httpApi:
+        method: GET
+        path: /users/leaderboards
+
+usersResetWeeklyLeaderboards:
+  handler: app/handler.usersResetWeeklyLeaderboards
+  events:
+    - schedule: cron(16 0 ? * MON *)
+
 usersResetCode:
   handler: app/handler.usersResetCode
   events:
     - httpApi:
         method: POST
         path: /users/resetCode
+
+usersUpdateCoins:
+  handler: app/handler.usersUpdateCoins
+  events:
+    - httpApi:
+        method: POST
+        path: /users/{userId}/updateCoins
+
+usersAddExp:
+  handler: app/handler.usersAddExp
+  events:
+    - httpApi:
+        method: POST
+        path: /users/{userId}/addExp
+
+usersUpdateAvatar:
+  handler: app/handler.usersUpdateAvatar
+  events:
+    - httpApi:
+        method: PATCH
+        path: /users/{userId}/avatar
 
 # read/write for custom:sign_up_code needs to be added manually
 preSignUpValidateCode:
