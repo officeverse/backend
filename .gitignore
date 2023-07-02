@@ -163,3 +163,6 @@ dist
 # Ignore all local history of files
 .history
 .ionide
+
+# serverless-s3-local
+/buckets/*
