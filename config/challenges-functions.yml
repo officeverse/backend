@@ -4,6 +4,8 @@ challengesCreate:
     - httpApi:
         method: POST
         path: /challenges
+        authorizer:
+          name: cognitoJwtAuthorizer
   iamRoleStatements:
     - Effect: 'Allow'
       Action:
@@ -16,6 +18,8 @@ challengesList:
     - httpApi:
         method: GET
         path: /challenges
+        authorizer:
+          name: cognitoJwtAuthorizer
   iamRoleStatements:
     - Effect: 'Allow'
       Action:

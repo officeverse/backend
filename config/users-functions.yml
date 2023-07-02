@@ -4,6 +4,8 @@ usersCreate:
     - httpApi:
         method: POST
         path: /users
+        authorizer:
+          name: cognitoJwtAuthorizer
 
 usersRetrieveProfile:
   handler: app/handler.usersRetrieveProfile
@@ -11,6 +13,8 @@ usersRetrieveProfile:
     - httpApi:
         method: GET
         path: /users/profile
+        authorizer:
+          name: cognitoJwtAuthorizer
 
 usersRetrieveLeaderboards:
   handler: app/handler.usersRetrieveLeaderboards
@@ -18,6 +22,8 @@ usersRetrieveLeaderboards:
     - httpApi:
         method: GET
         path: /users/leaderboards
+        authorizer:
+          name: cognitoJwtAuthorizer
 
 usersResetWeeklyLeaderboards:
   handler: app/handler.usersResetWeeklyLeaderboards
@@ -30,6 +36,8 @@ usersResetCode:
     - httpApi:
         method: POST
         path: /users/resetCode
+        authorizer:
+          name: cognitoJwtAuthorizer
 
 usersUpdateCoins:
   handler: app/handler.usersUpdateCoins
@@ -37,6 +45,8 @@ usersUpdateCoins:
     - httpApi:
         method: POST
         path: /users/{userId}/updateCoins
+        authorizer:
+          name: cognitoJwtAuthorizer
 
 usersAddExp:
   handler: app/handler.usersAddExp
@@ -44,6 +54,8 @@ usersAddExp:
     - httpApi:
         method: POST
         path: /users/{userId}/addExp
+        authorizer:
+          name: cognitoJwtAuthorizer
 
 usersUpdateAvatar:
   handler: app/handler.usersUpdateAvatar
@@ -51,13 +63,15 @@ usersUpdateAvatar:
     - httpApi:
         method: PATCH
         path: /users/{userId}/avatar
+        authorizer:
+          name: cognitoJwtAuthorizer
 
 # read/write for custom:sign_up_code needs to be added manually
 preSignUpValidateCode:
   handler: app/handler.preSignUpValidateCode
   events:
     - cognitoUserPool:
-        pool: ${env:COGNITO_USER_POOL}
+        pool: ${env:COGNITO_USER_POOL_NAME}
         trigger: PreSignUp
         existing: true
         forceDeploy: true
@@ -68,7 +82,7 @@ onUserSignUpConfirmation:
   handler: app/handler.onUserSignUpConfirmation
   events:
     - cognitoUserPool:
-        pool: ${env:COGNITO_USER_POOL}
+        pool: ${env:COGNITO_USER_POOL_NAME}
         trigger: PostConfirmation
         existing: true
         forceDeploy: true

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "tslint -p tsconfig.json -c tslint.json",
-    "local": "NODE_OPTIONS='--max-old-space-size=4096' serverless offline --stage local",
+    "local": "NODE_OPTIONS='--max-old-space-size=4096' serverless offline --stage local --ignoreJWTSignature",
     "deploy": "NODE_OPTIONS='--max-old-space-size=4096' serverless deploy",
     "test": "cross-env NODE_ENV=dev mocha -r ts-node/register tests/*.test.ts --exit",
     "coverage": "nyc --reporter lcov npm run test"
@@ -23,6 +23,7 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
+    "@aws-sdk/client-cognito-identity-provider": "^3.363.0",
     "@types/aws-lambda": "^8.10.119",
     "@types/chai": "^4.3.5",
     "@types/dotenv-safe": "^8.1.2",
@@ -33,6 +34,7 @@
     "@types/supertest": "^2.0.12",
     "chai": "^4.3.7",
     "cross-env": "^7.0.3",
+    "dotenv": "^16.3.1",
     "istanbul": "^0.4.5",
     "lambda-tester": "^4.0.1",
     "mocha": "^10.2.0",

@@ -4,7 +4,7 @@ useDotenv: true
 
 provider:
   name: aws
-  region: ap-south-1
+  region: ${env:AWS_REGION}
   runtime: nodejs18.x
   stage: ${opt:stage, 'dev'}
   memorySize: 512
@@ -12,6 +12,16 @@ provider:
     DB_NAME: ${env:DB_NAME}
     DB_URL: ${env:DB_URL}
     FILE_UPLOAD_BUCKET_NAME: ${env:FILE_UPLOAD_BUCKET_NAME}
+  httpApi:
+    authorizers:
+      cognitoJwtAuthorizer:
+        type: jwt
+        identitySource: $request.header.Authorization
+        issuerUrl: https://cognito-idp.${env:AWS_REGION}.amazonaws.com/${env:COGNITO_USER_POOL_ID}
+        audience:
+          - ${env:COGNITO_CLIENT_ID_1}
+          - ${env:COGNITO_CLIENT_ID_2}
+          - ${env:COGNITO_CLIENT_ID_DEV}
 
 plugins:
   - serverless-plugin-typescript

@@ -4,6 +4,8 @@ rewardsCreate:
     - httpApi:
         method: POST
         path: /rewards
+        authorizer:
+          name: cognitoJwtAuthorizer
   iamRoleStatements:
     - Effect: 'Allow'
       Action:
@@ -16,6 +18,8 @@ rewardsList:
     - httpApi:
         method: GET
         path: /rewards
+        authorizer:
+          name: cognitoJwtAuthorizer
   iamRoleStatements:
     - Effect: 'Allow'
       Action:
