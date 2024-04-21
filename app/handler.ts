@@ -13,7 +13,6 @@ import { UsersController } from './controller/users';
 import { handler as preSignUpValidateCodeHandler } from './service/user/preSignUpValidateCode';
 import { handler as onUserSignUpConfirmationHandler } from './service/user/onUserSignUpConfirmation';
 import { handler as resetWeeklyLeaderboardsHandler } from './service/user/resetWeeklyLeaderboards';
-import { handler as executeDBQueryHandler } from './utils/executeDBQuery';
 const challengesController = new ChallengesController(challenges);
 const rewardsController = new RewardsController(rewards);
 const usersController = new UsersController(users);
@@ -118,11 +117,4 @@ export const onUserSignUpConfirmation: Handler = (
   context: Context
 ) => {
   return onUserSignUpConfirmationHandler(event, context);
-};
-
-export const executeDBQuery: Handler = (
-  event: APIGatewayEvent,
-  context: Context
-) => {
-  return executeDBQueryHandler(event, context);
 };

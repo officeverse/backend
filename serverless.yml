@@ -36,6 +36,7 @@ package:
     - .env.local
   include:
     - .env.dev
+  individually: true
 
 functions:
   - ${file(./config/file-functions.yml)}
